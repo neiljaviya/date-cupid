@@ -1,0 +1,184 @@
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+    color: black;
+}
+
+/* Container Styles */
+.container {
+    text-align: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 600px;
+    position: relative;
+}
+
+/* GIF Styles */
+.gif-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.gif {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+/* Question and Option Styles */
+.question, .options, .buttons, .final-message {
+    margin-top: 20px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+    transition: transform 0.2s;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+button:active {
+    transform: scale(1);
+}
+
+#availability-select {
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+input[type=checkbox] {
+    margin: 10px;
+}
+
+label {
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+/* Hide default checkboxes */
+#activity-options input[type="checkbox"] {
+    display: none;
+}
+
+/* Style the labels to look like buttons */
+#activity-options label {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    border: 2px solid #ffafbd;
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Highlight selected options */
+#activity-options input[type="checkbox"]:checked + label {
+    background-color: #ffafbd;
+    color: white;
+}
+
+/* Additional Styles for a Cleaner Look */
+input[type=checkbox] + label {
+    cursor: pointer;
+    display: inline-block;
+    padding: 5px 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 5px;
+    background: white;
+    transition: background 0.3s, border-color 0.3s;
+}
+
+input[type=checkbox]:checked + label {
+    background: black;
+    color: white;
+    border-color: transparent;
+}
+
+.footer {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 14px;
+    color: black;
+}
+.footer a {
+    color: black;
+    text-decoration: none;
+}
+.footer a:hover {
+    text-decoration: underline;
+}
+
+#availability-select {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: white;
+    font-size: 16px;
+    color: black;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+#availability-select:focus {
+    border-color: #ffafbd;
+    outline: none;
+}
+
+/* Mobile Styles */
+@media (max-width: 600px) {
+    .container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .gif {
+        width: 150px;
+        height: 150px;
+    }
+
+    .button-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    #availability-select {
+        width: 100%;
+    }
+
+    .footer {
+        font-size: 12px;
+    }
+}
