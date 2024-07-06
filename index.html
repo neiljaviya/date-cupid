@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Invitation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+       <div class="gif-container">
+            <img id="cute-gif" src="https://github.com/neiljaviya/its-a-date/blob/main/res/cat-cute.gif?raw=true" alt="Cute GIF" class="gif">
+            <img id="excited-gif" src="https://github.com/neiljaviya/its-a-date/blob/main/res/cat-excited.gif?raw=true" alt="Excited GIF" class="gif" style="display:none;">
+            <img id="questioning-gif" src="https://github.com/neiljaviya/its-a-date/blob/main/res/cat-questioning.gif?raw=true" alt="Questioning GIF" class="gif" style="display:none;">
+            <img id="angry-gif" src="https://github.com/neiljaviya/its-a-date/blob/main/res/cat-angry.gif?raw=true" alt="Angry GIF" class="gif" style="display:none;">
+            <img id="dead-gif" src="https://github.com/neiljaviya/its-a-date/blob/main/res/cat-dead.gif?raw=true" alt="Dead GIF" class="gif" style="display:none;">
+            <img id="final-gif" src="https://github.com/neiljaviya/its-a-date/blob/main/res/cat-final.gif?raw=true" alt="Final GIF" class="gif" style="display:none;">
+        </div>
+        <div id="first-question" class="question">
+            <p>Would you go out with me on a date someday??</p>
+            <div class="button-container">
+                <button id="yes-btn">Yes</button>
+                <button id="no-btn">No</button>
+            </div>
+        </div>
+        <div id="second-question" class="question" style="display:none;">
+            <p>When are you available??</p>
+            <select id="availability-select">
+                <option value="this-week">Sometime this week</option>
+                <option value="next-week">Sometime next week</option>
+                <option value="next-to-next-week">Sometime next to next week</option>
+                <option value="next-month">Next month</option>
+                <option value="September">September</option>
+                <option value="October">October</option>
+                <option value="November">November</option>
+                <option value="December">December</option>
+                <option value="2025">2025</option>
+                <option value="2026">2026</option>
+                <option value="2027">2027</option>
+                <option value="2028">2028</option>
+                <option value="2029">2029</option>
+                <option value="2030">2030</option>
+                <option value="2031-2040">2031-2040</option>
+                <option value="2041-2050">2041-2050</option>
+                <option value="2051-2060">2051-2060</option>
+                <option value="2061-2070">2061-2070</option>
+                <option value="2071-2080">2071-2080</option>
+                <option value="2081-2090">2081-2090</option>
+                <option value="2091-2100">2091-2100</option>
+            </select>
+            <button id="availability-next-btn">Next</button>
+        </div>
+        <div id="third-question" class="question" style="display:none;">
+            <p>What activity you think we should do?</p>
+            <div id="activity-options">
+                <input type="checkbox" id="brunch" name="activity" value="Brunch">
+                <label for="brunch">Brunch</label>
+                <input type="checkbox" id="lunch" name="activity" value="Lunch">
+                <label for="lunch">Lunch</label>
+                <input type="checkbox" id="dinner" name="activity" value="Dinner">
+                <label for="dinner">Dinner</label>
+                <input type="checkbox" id="park" name="activity" value="Park/Trail/Hike">
+                <label for="park">Park/Trail/Hike</label>
+                <input type="checkbox" id="beach" name="activity" value="Beach/Harbour Front">
+                <label for="beach">Beach/Harbour Front</label>
+                <input type="checkbox" id="movie" name="activity" value="Movie">
+                <label for="movie">Movie</label>
+                <input type="checkbox" id="something-else" name="activity" value="Something Else">
+                <label for="something-else">Something Else</label>
+                <input type="checkbox" id="surprise-me" name="activity" value="Surprise me!">
+                <label for="surprise-me">Surprise me!</label>
+            </div>
+            <button id="activity-next-btn">Next</button>
+        </div>
+        <div id="final-message" class="final-message" style="display:none;">
+            <p>Yay! Then It’s a date!</p>
+        </div>
+    </div>
+    <div class="footer">
+        Made with ❤️ by <a href="https://github.com/neiljaviya" target="_blank"><strong>Neil Javiya</strong></a>
+    </div>
+
+   
+    <script src="script.js"></script>
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+        emailjs.init('#PASTE YOUR EMAIL JS PUBLIC CODE HERE#');
+    })();
+    </script>
+    </body>
+</html>
