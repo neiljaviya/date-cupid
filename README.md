@@ -60,7 +60,7 @@ Made with ❤️ by <a href="https://github.com/your-github-username" target="_b
 
 Example (replace neiljaviya with your GitHub username and its-a-date with your repository name):
 ```
-<img id="cute-gif" src="https://github.com/your-github-username/its-a-date/blob/main/res/cat-cute.gif?raw=true" alt="Cute GIF" class="gif">
+<img id="cute-gif" src="https://github.com/your-github-username/your-repository-name/blob/main/res/cat-cute.gif?raw=true" alt="Cute GIF" class="gif">
 ```
 5. Publish Your Code with GitHub pages or other Web Host
 <p>Finally, head over to repository settings > pages and under Branches section select the branch having updated code and press 'Save' to publish with GitHub pages.</p>
