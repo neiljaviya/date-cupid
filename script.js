@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const activityOptions = document.getElementById('activity-options');
     const activityNextBtn = document.getElementById('activity-next-btn');
     const finalMessage = document.getElementById('final-message');
+    const confirmAvailability = document.getElementById('confirm-availability');
+    const confirmActivities = document.getElementById('confirm-activities');
     const gifs = {
         cute: document.getElementById('cute-gif'),
         excited: document.getElementById('excited-gif'),
@@ -54,24 +56,81 @@ document.addEventListener('DOMContentLoaded', () => {
         secondQuestion.style.display = 'block';
     });
 
-    // Availability next button functionality
+    // Function to generate dynamic dropdown options
+    function generateDropdownOptions() {
+        const currentDate = new Date();
+        const currentYear = currentDate.getFullYear();
+        const currentMonth = currentDate.getMonth();
+        const currentDay = currentDate.getDate();
+        const endYear = currentYear + 40;
+
+        const weeks = [
+            'Sometime this week',
+            'Sometime next week',
+            'Sometime next to next week',
+            'Next month'
+        ];
+
+        const months = [
+            'January', 'February', 'March', 'April',
+            'May', 'June', 'July', 'August',
+            'September', 'October', 'November', 'December'
+        ];
+
+        // Add options for the next few weeks
+        weeks.forEach(week => {
+            const option = document.createElement('option');
+            option.value = week.toLowerCase().replace(/ /g, '-');
+            option.textContent = week;
+            availabilitySelect.appendChild(option);
+        });
+
+        // Add options for the next few months
+        for (let i = currentMonth + 2; i < currentMonth + 6; i++) {
+            const monthIndex = i % 12;
+            const option = document.createElement('option');
+            option.value = months[monthIndex];
+            option.textContent = months[monthIndex];
+            availabilitySelect.appendChild(option);
+        }
+
+        // Add options for the next 10 years
+        for (let i = currentYear+1; i < currentYear + 6; i++) {
+            const option = document.createElement('option');
+            option.value = i.toString();
+            option.textContent = i.toString();
+            availabilitySelect.appendChild(option);
+        }
+
+        for (let i = Math.ceil(currentYear / 10) * 10; i < endYear; i += 10) {
+            const option = document.createElement('option');
+            option.value = `${i}-${i + 9}`;
+            option.textContent = `${i}-${i + 9}`;
+            availabilitySelect.appendChild(option);
+        }
+    }
+    
+    // Call the function to generate dynamic dropdown options
+    generateDropdownOptions();
+    
+     // Availability next button functionality
     availabilityNextBtn.addEventListener('click', () => {
         availability = availabilitySelect.value;
-    
+
         // Show appropriate gif based on availability
-        if (['this-week', 'next-week', 'next-to-next-week', 'next-month'].includes(availability)) {
+        if (['sometime-this-week', 'sometime-next-week', 'sometime-next-to-next-week', 'next-month'].includes(availability)) {
             showGif('excited');
             secondQuestion.style.display = 'none';
             thirdQuestion.style.display = 'block';
-        } else if (['September', 'October', 'November', 'December'].includes(availability)) {
+        } else if (['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'].includes(availability)) {
             showGif('questioning');
-            alert('Seriously?');
-        } else if (['2025', '2026', '2027', '2028', '2029', '2030'].includes(availability)) {
+            alert(getRandomAlertMessage());
+        } else if (['2024', '2025', '2026', '2027', '2028', '2029', '2030', '2031', '2032', '2033'].includes(availability)) {
             showGif('angry');
-            alert('Seriously?');
+            alert(getRandomAlertMessage());
         } else {
             showGif('dead');
-            alert('Seriously?');
+            alert(getRandomAlertMessage());
         }
         return;
     });
@@ -87,7 +146,10 @@ document.addEventListener('DOMContentLoaded', () => {
         thirdQuestion.style.display = 'none';
         finalMessage.style.display = 'block';
         showGif('final');
-
+        
+        confirmAvailability.textContent = availability;
+        confirmActivities.textContent = selectedActivities.join(', ');
+        
         // Send email (pseudo implementation)
         sendEmail(availability, selectedActivities);
     });
@@ -107,5 +169,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }, (error) => {
             console.log('FAILED...', error);
         });
-}
+    }
+
+        // Function to get random alert message
+    function getRandomAlertMessage() {
+        const messages = [
+            'Seriously?',
+            'Come on, don\'t be ruthless!',
+            'Have some mercy!',
+            'Are you kidding me?',
+            'Be realistic!',
+            'Think again!',
+            'You must be joking!'
+        ];
+        return messages[Math.floor(Math.random() * messages.length)];
+    }
 });
