@@ -79,6 +79,59 @@ label {
     font-size: 16px;
 }
 
+.final-message {
+    display: none; /* Hidden by default */
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.final-message .container {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 600px;
+    margin: auto;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.final-message .header {
+    margin-bottom: 20px;
+}
+
+.final-message .header h1 {
+    font-size: 24px;
+    color: #ff6f61;
+    margin: 0;
+}
+
+.final-message .content {
+    margin-bottom: 20px;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+}
+
+.final-message .content p {
+    margin: 10px 0;
+}
+
+.final-message .regards {
+    font-size: 14px;
+    color: #777;
+}
+
+.final-message .regards p {
+    margin: 5px 0;
+}
+
+.final-message .content span {
+    font-weight: bold;
+    color: #ff6f61;
+}
+
 /* Hide default checkboxes */
 #activity-options input[type="checkbox"] {
     display: none;
@@ -180,5 +233,24 @@ input[type=checkbox]:checked + label {
 
     .footer {
         font-size: 12px;
+    }
+
+    .final-message .container {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .final-message .header h1 {
+        font-size: 20px;
+    }
+
+    .final-message .content,
+    .final-message .regards {
+        font-size: 14px;
+    }
+
+    .gif-container .gif {
+        width: 120px;
+        height: 120px;
     }
 }
