@@ -184,4 +184,16 @@ document.addEventListener('DOMContentLoaded', () => {
         ];
         return messages[Math.floor(Math.random() * messages.length)];
     }
+
+    function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param) || "Dear"; // Default fallback
+    }
+
+    const yourName = getQueryParam("yourname");
+    const crushName = getQueryParam("crushname");
+
+    // Update the final message dynamically
+    document.querySelector(".final-message .content p:first-child").innerHTML = `Hello ${crushName},`;
+    document.querySelector(".regards p").innerHTML = `Regards,<br>${yourName} 💖`;
 });
