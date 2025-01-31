@@ -17,7 +17,7 @@
             <img id="final-gif" src="https://github.com/neiljaviya/date-cupid/blob/main/res/cat-final.gif?raw=true" alt="Final GIF" class="gif" style="display:none;">
         </div>
         <div id="first-question" class="question">
-            <p>Would you go out with me on a date someday??</p>
+            <p><span class="crush-name"></span>Would you go out with me on a date someday??</p>
             <div class="button-container">
                 <button id="yes-btn">Yes</button>
                 <button id="no-btn">No</button>
@@ -65,17 +65,15 @@
                 <div class="regards">
                     <p>Regards,<br><span id="your-name">Neil Javiya</span> 💖</p>
                 </div>
-                 <button id="generate-link-btn">Personalize & Share</button>
-
-                <!-- Hidden container for the link generator -->
-                <div id="link-generator" style="display: none;">
-                    <h3>Want to personalize this for your crush?</h3>
-                    <input type="text" id="input-your-name" placeholder="Your Name">
-                    <input type="text" id="input-crush-name" placeholder="Crush's Name">
-                    <button onclick="generateLink()">Generate Link</button>
-                    <p>Share this link: <a id="generated-link" href="#" target="_blank">[Generated Link]</a></p>
-                </div>
+                 <button id="generate-link-next-button">Personalize & Share</button>                
             </div>
+        </div>
+        <div id="link-generator" style="display: none;">
+            <h3>Want to personalize this for your crush?</h3>
+            <input type="text" id="input-your-name" placeholder="Your Name">
+            <input type="text" id="input-crush-name" placeholder="Crush's Name">
+            <button id="generate-link-button">Generate Link</button>
+            <p>Share this link: <a id="generated-link" href="#" target="_blank">[Generated Link]</a></p>
         </div>
     </div>
     <div class="footer">

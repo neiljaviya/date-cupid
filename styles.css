@@ -174,6 +174,13 @@ input[type=checkbox]:checked + label {
     border-color: transparent;
 }
 
+input[type=text] {
+    padding: 5px 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 5px;
+}
+
 .footer {
     position: absolute;
     bottom: 10px;
@@ -253,4 +260,42 @@ input[type=checkbox]:checked + label {
         width: 120px;
         height: 120px;
     }
+
+    /* Style for the 'Generate Link' button */
+#generate-link-button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #ff6f61;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+#generate-link-button:hover {
+    transform: scale(1.1);
+}
+
+/* Style for the generated link display */
+#generated-link-container {
+    display: none; /* Hidden by default */
+    text-align: center;
+    margin-top: 15px;
+}
+
+#generated-link {
+    display: block;
+    padding: 10px;
+    word-wrap: break-word;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid #ffafbd;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #333;
+    text-decoration: none;
+}
+
 }

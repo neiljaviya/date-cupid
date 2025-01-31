@@ -20,6 +20,9 @@ document.addEventListener('DOMContentLoaded', () => {
         dead: document.getElementById('dead-gif'),
         final: document.getElementById('final-gif')
     };
+    const genLinkShowBtn = document.getElementById('generate-link-next-button')
+    const genBtn = document.getElementById('generate-link-button');
+    const linkGen = document.getElementById('link-generator');
 
     let availability = '';
 
@@ -56,6 +59,11 @@ document.addEventListener('DOMContentLoaded', () => {
         secondQuestion.style.display = 'block';
     });
 
+    genLinkShowBtn.addEventListener('click', () => {
+        finalMessage.style.display = 'none';
+        linkGen.style.display = 'block';
+    });
+
     // Function to generate dynamic dropdown options
     function generateDropdownOptions() {
         const currentDate = new Date();
@@ -65,6 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const endYear = currentYear + 40;
 
         const weeks = [
+            'On Valentines Day',
             'Sometime this week',
             'Sometime next week',
             'Sometime next to next week',
@@ -118,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
         availability = availabilitySelect.value;
 
         // Show appropriate gif based on availability
-        if (['sometime-this-week', 'sometime-next-week', 'sometime-next-to-next-week', 'next-month'].includes(availability)) {
+        if (['on-valentines-day','sometime-this-week', 'sometime-next-week', 'sometime-next-to-next-week', 'next-month'].includes(availability)) {
             showGif('excited');
             secondQuestion.style.display = 'none';
             thirdQuestion.style.display = 'block';
@@ -147,7 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
         finalMessage.style.display = 'block';
         showGif('final');
         
-        confirmAvailability.textContent = availability;
+        confirmAvailability.textContent = formatAvailabilityText(availability);
         confirmActivities.textContent = selectedActivities.join(', ');
         
         // Send email (pseudo implementation)
@@ -160,7 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
         to_name: 'RECEIPIENT NAME', // replace with recipient's name
         to_email: 'RECEIPIENT@GMAIL.COM', // replace with the recipient's email
         availability: availability,
-        activities: activities.join(', '),
+        activities: activities.join(' or '),
     };
 
     emailjs.send('EMAIL JS SERVICE ID', 'EMAIL JS TEMPLATE ID', templateParams) // replace service ID & Template ID here
@@ -196,8 +205,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Update the final message dynamically
     document.querySelector(".final-message .content p:first-child").innerHTML = `Hello ${crushName},`;
     document.querySelector(".regards p").innerHTML = `Regards,<br>${yourName} 💖`;
+    document.querySelector(".question p:first-child").innerHTML = `${crushName}, Would you go out with me on a date someday??`;
 
-    function generateLink() {
+    genBtn.addEventListener('click', () => {
     const yourNameInput = document.getElementById("input-your-name").value.trim();
     const crushNameInput = document.getElementById("input-crush-name").value.trim();
 
@@ -208,5 +218,11 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         alert("Please enter both names!");
     }
-}
+    });
+
+    function formatAvailabilityText(text) {
+        return text
+            .replace(/-/g, " ") // Replace hyphens with spaces
+            .replace(/\b\w/g, (char) => char.toUpperCase()); // Capitalize each word
+    }
 });
