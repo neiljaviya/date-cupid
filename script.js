@@ -194,7 +194,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const crushName = getQueryParam("crushname");
 
     // Update the final message dynamically
-     document.getElementById("first-question").querySelector("p").innerHTML = `${crushName}, would you like to go on a date with me?`;
     document.querySelector(".final-message .content p:first-child").innerHTML = `Hello ${crushName},`;
     document.querySelector(".regards p").innerHTML = `Regards,<br>${yourName} 💖`;
 });
