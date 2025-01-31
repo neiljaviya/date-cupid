@@ -196,4 +196,17 @@ document.addEventListener('DOMContentLoaded', () => {
     // Update the final message dynamically
     document.querySelector(".final-message .content p:first-child").innerHTML = `Hello ${crushName},`;
     document.querySelector(".regards p").innerHTML = `Regards,<br>${yourName} 💖`;
+
+    function generateLink() {
+    const yourNameInput = document.getElementById("input-your-name").value.trim();
+    const crushNameInput = document.getElementById("input-crush-name").value.trim();
+
+    if (yourNameInput && crushNameInput) {
+        const link = `${window.location.origin}${window.location.pathname}?yourname=${encodeURIComponent(yourNameInput)}&crushname=${encodeURIComponent(crushNameInput)}`;
+        document.getElementById("generated-link").href = link;
+        document.getElementById("generated-link").innerText = link;
+    } else {
+        alert("Please enter both names!");
+    }
+}
 });
